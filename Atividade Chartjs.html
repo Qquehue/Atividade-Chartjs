@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade Chartjs</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="display: flex; justify-content: space-between;">
+    <div>
+        <canvas id="linha" style="position: relative; height: 70vh; width: 90vh;"></canvas>
+    </div>
+    <div>
+        <canvas id="barra" style="position: relative; height: 70vh; width: 90vh;"></canvas>
+    </div>
+
+
+</body>
+
+<script>
+    const meses = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+    ];
+
+    const graf_linha = {
+        labels: meses,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [30, 28, 27, 25, 22, 23],
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(0, 0, 132)',
+            data: [80, 82, 80, 86, 85, 82],
+        }]
+    };
+    const graf_barra = {
+        labels: meses,
+        datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [20, 23, 26, 22, 20, 18],
+        },
+        {   label: 'Umidade Média',
+            backgroundColor: 'rgb(0, 0, 132)',
+            borderColor: 'rgb(0, 0, 132)',
+            data: [90, 89, 92, 87, 88, 81],
+        }]
+    };
+    const config_linha = {
+        type: 'line',
+        data: graf_linha,
+        options: {}
+    };
+    const config_barra = {
+        type: 'bar',
+        data: graf_barra,
+        options: {}
+    };
+</script>
+
+<script>
+    const myChart1 = new Chart(
+        document.getElementById('linha'),
+        config_linha
+    );
+    const myChart2 = new Chart(
+        document.getElementById('barra'),
+        config_barra
+    );
+</script>
+
+
+</html>
